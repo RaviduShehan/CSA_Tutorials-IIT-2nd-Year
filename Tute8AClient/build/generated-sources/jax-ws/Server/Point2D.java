@@ -33,8 +33,8 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Point2D {
 
-    protected Double x;
-    protected Double y;
+    public Double x;
+    public Double y;
 
     /**
      * Gets the value of the x property.
