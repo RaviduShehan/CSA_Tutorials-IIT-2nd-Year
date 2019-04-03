@@ -18,24 +18,36 @@ public class MyClient {
         MyClient client = new MyClient();
         client.executeTest();
         
-        System.out.println("[Client] - Find the Shortest between Short and Long");
+       
+    }
+
+    private void executeTest() {
+        System.out.println("[Client] - Execute test, Test starting....");
+        if(testConnection()==0){
+            System.out.println("[Client] - Server is Connected.. Test can Proceed..");
+            
+        }else{
+           System.out.println("[Client] - Server is NOT Connected.. Test failed.."); 
+        }
         
-        if(client.findShortestBetween("Short","long").equals("long")){
+         System.out.println("[Client] - Find the Shortest between Short and Long");
+        
+        if(findShortestBetween("Short","long").equals("long")){
               System.out.println("[Client] - findShortestBetween(), Correct Answer..");
         }else{
                System.out.println("[Client] - findShortestBetween(), Wrong Answer..");
         }
         
         System.out.println("[Client] - Adding Strings....");
-        client.addString("One");
-        client.addString("Three");
-        client.addString("Four");
-        client.addString("Five");
+        addString("One");
+        addString("Three");
+        addString("Four");
+        addString("Five");
         
         System.out.println("[Client] - Adding Finished....");
         
         System.out.println("[Client] -finding the shortest among the added Strings....");
-        if(client.findShortestAmongStrings().equals("One")){
+        if(findShortestAmongStrings().equals("One")){
               System.out.println("[Client] - findShortestAmongStrings(), Correct Answer..");
         }else{
              System.out.println("[Client] - findShortestAmongStrings(), Wrong Answer..");
@@ -44,7 +56,7 @@ public class MyClient {
         System.out.println("[Client] - Find the Shortest between Short and Long with exception..");
         
         try {
-            if(client.findShortestBetweenWithException("Short", "long").equals("long")){
+            if(findShortestBetweenWithException("Short", "long").equals("long")){
                 System.out.println("[Client] - findShortestBetweenWithException(), Correct Answer..");
             }else{
                 System.out.println("[Client] - findShortestBetweenWithException(), Wrong Answer..");
@@ -53,7 +65,7 @@ public class MyClient {
             System.out.println("[Client] - findShortestBetweenWithException(), ERROR!! You should not see this Exeception..");
         }
          try {
-            if(client.findShortestBetweenWithException(null, "long").equals("long")){
+            if(findShortestBetweenWithException(null, "long").equals("long")){
                 System.out.println("[Client] - findShortestBetweenWithException(), Correct Answer..");
             }else{
                 System.out.println("[Client] - findShortestBetweenWithException(), Wrong Answer..");
@@ -62,7 +74,7 @@ public class MyClient {
             System.out.println("[Client] - findShortestBetweenWithException(), ERROR!! You should not see this Exeception..");
         }
          try {
-            if(client.findShortestBetweenWithException("Short", null).equals("long")){
+            if(findShortestBetweenWithException("Short", null).equals("long")){
                 System.out.println("[Client] - findShortestBetweenWithException(), Correct Answer..");
             }else{
                 System.out.println("[Client] - findShortestBetweenWithException(), Wrong Answer..");
@@ -71,7 +83,7 @@ public class MyClient {
             System.out.println("[Client] - findShortestBetweenWithException(), ERROR!! You should be see this Exeception..");
         }
           try {
-            if(client.findShortestBetweenWithException(null,null).equals("long")){
+            if(findShortestBetweenWithException(null,null).equals("long")){
                 System.out.println("[Client] - findShortestBetweenWithException(), Correct Answer..");
             }else{
                 System.out.println("[Client] - findShortestBetweenWithException(), Wrong Answer..");
@@ -102,17 +114,8 @@ public class MyClient {
         }
           
           
-    }
-
-    private void executeTest() {
-        System.out.println("[Client] - Execute test, Test starting....");
-        if(testConnection()==0){
-            System.out.println("[Client] - Server is Connected.. Test can Proceed..");
-            
-        }else{
-           System.out.println("[Client] - Server is NOT Connected.. Test failed.."); 
-        }
         System.out.println("[Client] - Test Completed.....");
+        
     }
 
     private static Integer testConnection() {
